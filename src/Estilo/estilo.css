@@ -1,0 +1,108 @@
+.Menu1 {
+  background-color: rgb(0, 0, 0);
+  display: flex;
+  justify-content: end;
+}
+.Menu1 a {
+  padding: 10px 15px;
+  text-decoration: underline;
+  color:rgb(255, 255, 255)
+}
+.not-found {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.not-found h1 {
+  font-size: 30px;
+  margin: 10px 0;
+}
+.not-found p {
+  font-size: 18px;
+}
+.not-found a {
+  margin-top: 20px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+
+.container-nome {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: 0 auto;
+  input { height: 30px; }
+}
+
+.container-senha {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: 0 auto;
+  input { height: 30px; }
+}
+
+.container-email {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: 0 auto;
+  input { height: 30px; }
+}
+
+.botao1{
+  height: 30px;
+  width: 90px;
+  font-size:large;
+  background-color:rgb(0, 0, 0); 
+  color: #ffffff;           
+  border: none;                    
+  border-radius: 6px;
+}
+
+.botao2{
+  height: 30px;
+  width: 60px;
+  font-size:medium;
+  background-color: rgb(0, 0, 0);
+  color: #ffffff;           
+  border: none;                 
+  border-radius: 6px;
+}
+
+.botao1:hover{
+background-color:rgb(117, 117, 117);
+}
+
+.botao2:hover{
+ background-color: rgb(117, 117, 117);
+  color: #ffffff;
+}
+
+input {
+  background-color: rgb(255, 255, 255); 
+  color: #000000;           
+  border: none
+}
+
+input::placeholder {
+  color:  rgb(0, 0, 0);
+  font-size: large;
+  font-size: 18px;
+}
+
+input {
+  border-radius: 12px; 
+  border: 1px solid #000000; 
+  padding: 10px 15px; 
+  font-size: 18px;
+}
+
+body {
+  background-color: #ffffff;
+  font-family: sans-serif;
+}
