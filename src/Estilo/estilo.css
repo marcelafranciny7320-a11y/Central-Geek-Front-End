@@ -1,13 +1,46 @@
-.Menu1 {
-  background-color: rgb(0, 0, 0);
-  display: flex;
-  justify-content: end;
+/* Configurações Globais e Variáveis de Cor */
+:root {
+  --bg-main: #0f172a;
+  --bg-card: #1e293b;
+  --bg-input: #334155;
+  --primary: #8b5cf6;
+  --primary-hover: #7c3aed;
+  --accent: #ff2a5f;
+  --accent-hover: #e11d48;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --border-color: #475569;
 }
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Menu Superior */
+.Menu1 {
+  background-color: #020617;
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px 20px;
+}
+
 .Menu1 a {
   padding: 10px 15px;
-  text-decoration: underline;
-  color:rgb(255, 255, 255)
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 600;
+  transition: color 0.2s ease;
 }
+
+.Menu1 a:hover {
+  color: var(--accent);
+}
+
+/* Página 404 */
 .not-found {
   height: 100vh;
   display: flex;
@@ -16,93 +49,237 @@
   align-items: center;
   text-align: center;
 }
+
 .not-found h1 {
-  font-size: 30px;
+  font-size: 32px;
   margin: 10px 0;
+  color: var(--accent);
 }
+
 .not-found p {
   font-size: 18px;
+  color: var(--text-muted);
 }
+
 .not-found a {
   margin-top: 20px;
   text-decoration: none;
   font-weight: bold;
+  color: var(--primary);
 }
 
-
-.container-nome {
-  display: flex;
-  flex-direction: column;
-  width: 400px;
-  margin: 0 auto;
-  input { height: 30px; }
-}
-
-.container-senha {
-  display: flex;
-  flex-direction: column;
-  width: 400px;
-  margin: 0 auto;
-  input { height: 30px; }
-}
-
+/* Containers de Formulário */
+.container-nome,
+.container-senha,
 .container-email {
   display: flex;
   flex-direction: column;
-  width: 400px;
-  margin: 0 auto;
-  input { height: 30px; }
+  width: 100%;
+  max-width: 400px;
+  margin: 10px auto;
 }
 
-.botao1{
-  height: 30px;
-  width: 90px;
-  font-size:large;
-  background-color:rgb(0, 0, 0); 
-  color: #ffffff;           
-  border: none;                    
-  border-radius: 6px;
+/* Botões Reutilizáveis */
+.botao1,
+.botao2 {
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
-.botao2{
-  height: 30px;
-  width: 60px;
-  font-size:medium;
-  background-color: rgb(0, 0, 0);
-  color: #ffffff;           
-  border: none;                 
-  border-radius: 6px;
-}
-
-.botao1:hover{
-background-color:rgb(117, 117, 117);
-}
-
-.botao2:hover{
- background-color: rgb(117, 117, 117);
+.botao1 {
+  height: 40px;
+  padding: 0 20px;
+  font-size: 16px;
+  background-color: var(--primary);
   color: #ffffff;
 }
 
+.botao2 {
+  height: 35px;
+  padding: 0 15px;
+  font-size: 14px;
+  background-color: var(--accent);
+  color: #ffffff;
+}
+
+.botao1:hover {
+  background-color: var(--primary-hover);
+}
+
+.botao2:hover {
+  background-color: var(--accent-hover);
+}
+
+/* Entradas de Texto (Inputs) */
 input {
-  background-color: rgb(255, 255, 255); 
-  color: #000000;           
-  border: none
+  background-color: var(--bg-input);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 10px 15px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+input:focus {
+  border-color: var(--primary);
 }
 
 input::placeholder {
-  color:  rgb(0, 0, 0);
-  font-size: large;
-  font-size: 18px;
+  color: var(--text-muted);
+  font-size: 15px;
 }
 
-input {
-  border-radius: 12px; 
-  border: 1px solid #000000; 
-  padding: 10px 15px; 
-  font-size: 18px;
+.Mensagem {
+  color: var(--text-muted);
 }
 
-body {
-  background-color: #ffffff;
-  font-family: sans-serif;
+/* Card do Formulário de Cadastro/Login */
+.formulario {
+  padding: 40px;
+  max-width: 450px;
+  text-align: center;
+  margin: 60px auto;
+  background-color: var(--bg-card);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--border-color);
+}
+
+.formulario label {
+  display: block;
+  text-align: left;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.formulario input {
+  width: 100%;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+.formulario a {
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.formulario a:hover {
+  text-decoration: underline;
+  color: var(--accent);
+}
+
+/* HOME - Área de Pesquisa e Lista */
+.home-pesquisa {
+  background-color: #020617;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-pesquisa-input {
+  background-color: var(--bg-card);
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+}
+
+.home-pesquisa-input-campo {
+  flex: 1;
+  border: none;
+  background: transparent;
+}
+
+.home-pesquisa-input-botao {
+  width: 120px;
+  height: 42px;
+  background-color: var(--primary);
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: 10px;
+  transition: background-color 0.2s ease;
+}
+
+.home-pesquisa-input-botao:hover {
+  background-color: var(--primary-hover);
+}
+
+.home-cards {
+  background-color: var(--bg-main);
+  padding: 40px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Componente Card de Mangá */
+.card {
+  width: 280px;
+  background-color: var(--bg-card);
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  padding: 16px;
+  border: 1px solid var(--border-color);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.15);
+}
+
+.card-image-container {
+  height: 220px;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 12px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-button {
+  width: 100%;
+  height: 40px;
+  background-color: var(--accent);
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 15px;
+  transition: background-color 0.2s ease;
+}
+
+.card-button:hover {
+  background-color: var(--accent-hover);
 }

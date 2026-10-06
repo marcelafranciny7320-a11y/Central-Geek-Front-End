@@ -1,47 +1,60 @@
+import type { FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-function Login () {
+function Login() {
 
- const navegador = useNavigate();
+    const navegador = useNavigate();
 
-    function HandleVoltar() {
-        navegador('/')
+    function handleLogin(event: FormEvent<HTMLFormElement>) {
+        event.preventDefault();
+
+        alert("Login Efetuado!");
+
+        console.log("Login enviado!");
     }
 
-     function HandleLogin() {
-        navegador('/')
-    }
+    return (
+        <form onSubmit={handleLogin} className="formulario">
 
+            <h1>Login</h1>
 
-    return(
-        <div>
-           <h1>Login</h1>
+            <br />
+
+            <label htmlFor="usuario">Usuário:</label>
+            <input
+                type="text"
+                id="usuario"
+                placeholder="Digite seu Usuário"
+                required
+            />
+
             <br />
             <br />
-            <div className="container-nome">
-                <label>Nome:</label>
-            <input type="name" placeholder="Digite o seu nome" />
-            </div>
+
+            <label htmlFor="senha">Senha:</label>
+            <input
+                type="password"
+                id="senha"
+                placeholder="Digite sua senha"
+                required
+            />
+
             <br />
             <br />
-           <div className="container-senha">
-             <label>Senha:</label>
-            <input type="password" placeholder="Digite a sua senha" />
-           </div>
+
+            <button  className="botao1" onClick={ () => { navegador("/"); } }>
+                Login
+            </button>
+
             <br />
             <br />
-             <button className="botao1" onClick={HandleLogin}>Login</button>
-              <br />
-            <br />
-            <button className="botao2" onClick={HandleVoltar}>Voltar</button>
-            <br />
-            <div style={{ marginTop: "15px" }}>
-        <span>Ainda não tem uma conta? </span>
-        <Link to="/Cadastro">Criar conta</Link>
-        </div>
-        
-        </div>
-    )
+
+            <Link to="/Cadastro">
+                <span>Não possui cadastro? Clique aqui!</span>
+            </Link>
+
+        </form>
+    );
 }
 
 export default Login;

@@ -1,49 +1,65 @@
 
-import { useNavigate } from "react-router-dom";
+import type { FormEvent } from "react";
 
 function Cadastro () {
 
- const navegador = useNavigate();
+     function handleCadastrar(event: FormEvent<HTMLFormElement>) {
+        event.preventDefault();
 
-    function HandleVoltar() { 
-        navegador('/')
+         alert("Cadastro Efetuado!");
+
+        console.log("Cadastro enviado!");
+        
     }
 
-    function HandlleCadastrar() {
-        navegador('/')
-    }
- 
-    return(
-        <div>
+    return (
+        <form onSubmit={handleCadastrar} className="formulario">
 
-           <h1>Cadastro</h1>
+            <h1>Cadastro</h1>
+
+            <label htmlFor="usuario">Nome:</label>
+            <input
+                id="usuario"
+                type="text"
+                placeholder="Digite seu nome"
+                required
+            />
+    
             <br />
             <br />
-            <div className="container-nome">
-                <label>Nome:</label>
-                <input type="name" placeholder="Digite o seu nome" />
-            </div>
+
+            <label htmlFor="senha">Senha:</label>
+            <input
+                id="senha"
+                type="password"
+                placeholder="Digite sua senha"
+                required
+            />
+
             <br />
             <br />
-             <div className="container-email">
-            <label>Email:</label>
-            <input type="Email" placeholder="Digite o seu Email" />
-          </div>
-          <br />
-          <br />
-            <div className="container-senha">
-                <label>Senha:</label>
-                <input type="password" placeholder="Digite a sua senha" />
-          </div>
-          <br />
-          <br />
-              <button className="botao1" onClick={HandlleCadastrar}>Cadastrar</button>
-               <br />
+
+            <label htmlFor="email">E-mail:</label>
+            <input
+                id="email"
+                type="email"
+                placeholder="Digite seu e-mail"
+                required
+            />
+
+             <br />
             <br />
-          <button className="botao2" onClick={HandleVoltar}>Voltar</button>
- 
-        </div>
-    )
+
+
+            <button  className="botao1" type="submit">
+                Cadastrar
+            </button>
+
+             <br />
+            <br />
+
+        </form>
+    );
 }
 
 export default Cadastro;
