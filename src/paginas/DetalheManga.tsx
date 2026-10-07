@@ -18,7 +18,7 @@ function DetalheManga() {
                 <h1>Tomie</h1>
                 <h2> Volume: <b>1</b></h2>
                 <h1>Avaliação: <b>9</b></h1>
-                <h1> <b>92,99</b></h1>
+                <h1> <b>R$92,99</b></h1>
 
                 <p className="estoque">Em estoque!</p>
 
