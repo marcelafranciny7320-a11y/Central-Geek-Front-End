@@ -1,8 +1,12 @@
 import Card from '../Componentes/cards';
 import '../Estilo/estilo.css'
+import { useNavigate } from "react-router-dom";
 
 
 function Home() {
+
+     const navigate = useNavigate();
+
     return (
         <>
             <div className="menu1"></div>
@@ -28,6 +32,12 @@ function Home() {
 
 
 
+            </div>
+
+            <div className="acoes-container">
+                  <button  onClick={() => {navigate("/CadastrarManga"); }} className="btn-adicionar">
+                Adicionar
+            </button>
             </div>
 
 

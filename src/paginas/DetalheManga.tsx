@@ -60,6 +60,10 @@ function DetalheManga() {
             <h1 className="text-titulo-obra">
                 <b>1</b>
             </h1>
+
+            <button  onClick={() => {navigate("/CadastrarManga"); }} className="btn-adicionar">
+                Adicionar
+            </button>
             </div>
 
          </div>

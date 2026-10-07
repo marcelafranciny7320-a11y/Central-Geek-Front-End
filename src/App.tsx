@@ -6,6 +6,7 @@ import Login from "./paginas/Login";
 import Home from "./paginas/Home";
 import NotFound from "./paginas/NotFound";
 import DetalheManga from "./paginas/DetalheManga";
+import CadastrarManga from "./paginas/CadastrarManga";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/Login" element={<Login />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/detalheManga" element={<DetalheManga />} />
+        <Route path="/CadastrarManga" element={<CadastrarManga />} />
       </Routes>
     </BrowserRouter>
   );
