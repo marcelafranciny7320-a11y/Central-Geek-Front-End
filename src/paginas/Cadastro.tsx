@@ -5,10 +5,6 @@ function Cadastro () {
 
      function handleCadastrar(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
-
-         alert("Cadastro Efetuado!");
-
-        console.log("Cadastro enviado!");
         
     }
 
