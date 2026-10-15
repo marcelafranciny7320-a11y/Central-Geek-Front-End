@@ -284,6 +284,165 @@ input::placeholder {
   background-color: var(--accent-hover);
 }
 
+
+/* ===== RODAPÉ CENTRAL GEEK ===== */
+
+.rodape {
+  background: linear-gradient(135deg, #171522, #211a32);
+  color: #e7e5ee;
+  padding: 42px 8% 20px;
+  border-top: 3px solid #8b5cf6;
+  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Brilho roxo sutil */
+.rodape::before {
+  content: "";
+  position: absolute;
+  top: -70px;
+  left: 15%;
+  width: 220px;
+  height: 100px;
+  background: #8b5cf6;
+  filter: blur(80px);
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+/* Organização das colunas */
+.rodape-conteudo {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 35px 60px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== COLUNA 1: SOBRE ===== */
+
+.rodape-coluna1 {
+  max-width: 400px;
+}
+
+.rodape-logo {
+  color: #a78bfa;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  margin: 0 0 14px;
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+.rodape-logo:hover {
+  color: #c4b5fd;
+  text-shadow: 0 0 14px rgb(167 139 250 / 35%);
+}
+
+.rodape-coluna1 p {
+  color: #c4c1d0;
+  font-size: 15px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* ===== COLUNA 2: LINKS ===== */
+
+.rodape-coluna2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 13px;
+}
+
+.rodape-coluna2 h4 {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 5px;
+}
+
+.rodape-coluna2 a {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #c4c1d0;
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+/* Efeito ao passar o mouse */
+.rodape-coluna2 a:hover {
+  color: #c4b5fd;
+  transform: translateX(4px);
+}
+
+/* Destaque para navegação pelo teclado */
+.rodape a:focus-visible {
+  outline: 2px solid #a78bfa;
+  outline-offset: 4px;
+  border-radius: 3px;
+}
+
+/* ===== COPYRIGHT ===== */
+
+.rodape-copyright {
+  grid-column: 1 / -1;
+  border-top: 1px solid #393247;
+  padding-top: 20px;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.rodape-copyright p {
+  color: #a5a0b5;
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+
+@media (max-width: 600px) {
+  .rodape {
+    padding: 32px 6% 20px;
+  }
+
+  .rodape-conteudo {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .rodape-coluna1 {
+    max-width: 100%;
+  }
+
+  .rodape-logo {
+    font-size: 25px;
+  }
+
+  .rodape-coluna2 {
+    gap: 15px;
+  
+  }
+
+  .rodape-copyright {
+    margin-top: 0;
+  }
+}
+
+/* Respeita usuários que preferem menos animações */
+@media (prefers-reduced-motion: reduce) {
+  .rodape-logo,
+  .rodape-coluna2 a {
+    transition: none;
+  }
+}
+
 .detalheManga-superior {
     height: 400px;
     width: 80%;
@@ -433,4 +592,3 @@ input::placeholder {
 .btn-adicionar:hover {
     opacity: 0.9;
 }
-
