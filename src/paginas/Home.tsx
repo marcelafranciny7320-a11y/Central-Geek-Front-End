@@ -3,6 +3,7 @@ import '../Estilo/estilo.css'
 
 
 function Home() {
+
     return (
         <>
             <div className="menu1"></div>
@@ -28,10 +29,7 @@ function Home() {
 
 
 
-            </div>
-
-
-            
+            </div>      
         </>
     )
 }
