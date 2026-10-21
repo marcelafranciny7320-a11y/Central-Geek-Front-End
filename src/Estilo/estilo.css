@@ -1,6 +1,6 @@
 /* Configurações Globais e Variáveis de Cor */
 :root {
-  --bg-main: #0f172a;
+  --bg-main: #d7dbe6;
   --bg-card: #1e293b;
   --bg-input: #334155;
   --primary: #8b5cf6;
@@ -21,11 +21,57 @@ body {
 }
 
 /* Menu Superior */
+.header {
+  display: flex;
+  justify-content: center;
+}
+
+.imgusuario{
+  width: 40px;
+  height: 40px;
+  margin-left: 20px;
+  flex: 1;
+}
+
+.localizacao{
+  width: 55px;
+  height: 55px;
+  margin-right: 20px;
+  
+}
+
+.logo{
+  width: 200px;
+  flex: 1;
+ 
+}
+  
+
+.home-botoes{
+  flex:1;
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+}
+
+.home-logo{
+  padding: 40px;
+  margin-right: 50px;
+
+}
+.carrinho{
+  width: 40px;
+  height: 40px;
+  margin-left: 20px;
+}
+
+
 .Menu1 {
-  background-color: #020617;
+  background-color: #291b68;
   display: flex;
   justify-content: flex-end;
   padding: 5px 20px;
+  margin-right: 40px;
 }
 
 .Menu1 a {
@@ -177,24 +223,30 @@ input::placeholder {
 
 /* HOME - Área de Pesquisa e Lista */
 .home-pesquisa {
-  background-color: #020617;
-  padding: 40px 20px;
+  background-color: #1a0b35;
+  padding: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin:8px;
+  border-radius: 12px;
+  box-shadow:3px 3px 5px black;
+  height: 148px;
+  
 }
 
 .home-pesquisa-input {
   background-color: var(--bg-card);
-  width: 100%;
-  max-width: 600px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 8px;
-  border-radius: 10px;
+  padding: 5px;
+  border-radius: 7px;
   border: 1px solid var(--border-color);
+  flex: 3;
+  
+  
 }
 
 .home-pesquisa-input-campo {

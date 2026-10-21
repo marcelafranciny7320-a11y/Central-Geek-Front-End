@@ -1,4 +1,4 @@
-import Menu from "./Componentes/Menu";
+
 import "./Estilo/estilo.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Cadastro from "./paginas/Cadastro";
@@ -6,11 +6,12 @@ import Login from "./paginas/Login";
 import Home from "./paginas/Home";
 import NotFound from "./paginas/NotFound";
 import DetalheLivro from "./paginas/DetalheLivro";
+import Cabecalho from "./Componentes/Cabecalho";
 
 function App() {
   return (
     <BrowserRouter>
-      <Menu />
+      <Cabecalho />
 
       <Routes>
         <Route path="/" element={<Home />} />
