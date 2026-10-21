@@ -7,6 +7,7 @@ import Home from "./paginas/Home";
 import NotFound from "./paginas/NotFound";
 import DetalheManga from "./paginas/DetalheManga";
 import Cabecalho from "./Componentes/Cabecalho";
+import Rodape from "./Componentes/Rodape.tsx";
 
 function App() {
   return (
@@ -20,6 +21,8 @@ function App() {
         <Route path="*" element={<NotFound />} />
         <Route path="/detalhe-livro" element={<DetalheManga />} />
       </Routes>
+
+      <Rodape />
           </BrowserRouter>
   );
 }

@@ -1,8 +1,9 @@
 /* Configurações Globais e Variáveis de Cor */
 :root {
-  --bg-main: #d7dbe6;
+  --bg-main: #0f172a;
   --bg-card: #1e293b;
   --bg-input: #334155;
+  --bg-header-botao:#2f498f;
   --primary: #8b5cf6;
   --primary-hover: #7c3aed;
   --accent: #ff2a5f;
@@ -10,6 +11,7 @@
   --text-main: #f8fafc;
   --text-muted: #94a3b8;
   --border-color: #475569;
+  --bg-primary:#211a32;
 }
 
 body {
@@ -223,7 +225,7 @@ input::placeholder {
 
 /* HOME - Área de Pesquisa e Lista */
 .home-pesquisa {
-  background-color: #1a0b35;
+  background-color: var(--bg-primary);
   padding: 5px;
   display: flex;
   justify-content: center;
@@ -258,7 +260,7 @@ input::placeholder {
 .home-pesquisa-input-botao {
   width: 120px;
   height: 42px;
-  background-color: var(--primary);
+  background-color: var( --bg-header-botao);
   color: #ffffff;
   border: none;
   border-radius: 6px;
@@ -340,7 +342,7 @@ input::placeholder {
 /* ===== RODAPÉ CENTRAL GEEK ===== */
 
 .rodape {
-  background: linear-gradient(135deg, #171522, #211a32);
+  background: linear-gradient(135deg, #171522, var(--bg-primary));
   color: #e7e5ee;
   padding: 42px 8% 20px;
   border-top: 3px solid #8b5cf6;
