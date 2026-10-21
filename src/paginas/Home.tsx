@@ -5,6 +5,7 @@ import type { tpCards } from '../types/cards';
 
 
 function Home() {
+
     const [Cards, setCard] = useState<tpCards[]>([]);
 
     const carregarCardsAsync = async () => {
@@ -28,15 +29,10 @@ function Home() {
                         <Card/>
                         {item.id}
                         </div>
-                    ))}
-
-                    
+                    ))}          
                 </div>
             </div>
-
             {/* <h1>Bem vindo a Home!</h1> */}
-
-
         </>
     )
 }

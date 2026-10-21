@@ -8,9 +8,6 @@ function Login() {
     function handleLogin(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
 
-        alert("Login Efetuado!");
-
-        console.log("Login enviado!");
     }
 
     return (

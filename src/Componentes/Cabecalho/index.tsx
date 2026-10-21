@@ -9,15 +9,14 @@ import carrinho from "../../assets/carrinho.png"
 function Cabecalho() {
     return (
         <div className="Cab-principal">
+            
             <header>
+
                 <div className="home-pesquisa">
+
                     <Link to="/" className="home-logo">
                         <img className="logo" src={logo} alt="página de localizacao" />
                     </Link>
-
-                    {/* <div>
-                        <img className="localizacao" src={localizacao} alt="página de localizacao" />
-                    </div> */}
 
                     <div className="home-pesquisa-input">
                         <input className="home-pesquisa-input-campo" type="text" placeholder="Pesquisar..." />
@@ -34,9 +33,7 @@ function Cabecalho() {
                             <img className="carrinho" src={carrinho} />
                         </div>
 
-
                     </div>
-
 
                 </div>
 
