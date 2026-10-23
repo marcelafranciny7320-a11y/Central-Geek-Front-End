@@ -1,6 +1,15 @@
 export type tpCards = {
-    userId: number;
-    id: number;
+    id: string;
     title: string;
-    body: string;
-}
+    volumeNumber: number;
+    isbn: string;
+    author: string;
+    publisher: string;
+    genre: string;
+    synopsis: string;
+    coverImageUrl: string;
+    condition: string;
+    ownerId: string;
+    notes?: string;
+    createdAt: string;
+};
