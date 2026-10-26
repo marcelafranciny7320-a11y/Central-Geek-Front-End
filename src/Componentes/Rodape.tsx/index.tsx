@@ -6,7 +6,7 @@ import {
 } from "lucide-react";
 
 import "../../Estilo/estilo.css";
-import logo from "../../assets/Rosa e Preto Tipográfico Clube Criativo Logotipo.png"
+import logo from "../../assets/logo.png"
 function Rodape() {
   return (
     <footer className="rodape">

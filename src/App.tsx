@@ -9,6 +9,7 @@ import NotFound from "./paginas/NotFound";
 import DetalheManga from "./paginas/DetalheManga";
 import Cabecalho from "./Componentes/Cabecalho";
 import Manga from "./paginas/Manga";
+import Rodape from "./Componentes/Rodape.tsx";
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
         <Route path="/manga" element={<Manga />} />
         <Route path="/manga/:id" element={<Manga />} />
       </Routes>
+
+      <Rodape />
           </BrowserRouter>
   );
 }
