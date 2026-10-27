@@ -397,7 +397,7 @@ input::placeholder {
 }
 
 .rodape-coluna1 p {
-  color: #c4c1d0;
+  color: #8b5cf6;
   font-size: 15px;
   line-height: 1.8;
   margin: 0;
@@ -406,14 +406,15 @@ input::placeholder {
 /* ===== COLUNA 2: LINKS ===== */
 
 .rodape-coluna2 {
+  padding-top: 100px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-end;
   gap: 13px;
 }
 
 .rodape-coluna2 h4 {
-  color: #ffffff;
+  color: #8b5cf6;
   font-size: 16px;
   font-weight: 700;
   margin: 0 0 5px;
@@ -423,7 +424,7 @@ input::placeholder {
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  color: #c4c1d0;
+  color: #8b5cf6;
   font-size: 14px;
   text-decoration: none;
   transition: color 0.25s ease, transform 0.25s ease;
@@ -453,7 +454,7 @@ input::placeholder {
 }
 
 .rodape-copyright p {
-  color: #a5a0b5;
+  color: #8b5cf6;
   font-size: 13px;
   line-height: 1.6;
   margin: 0;
