@@ -3,12 +3,15 @@ import Card from "../Componentes/cards";
 import "../Estilo/estilo.css";
 import type { tpCards } from "../types/cards";
 import { listarMangas } from "../api";
+import { useNavigate } from "react-router-dom";
+
 
 function Home() {
     const [Cards, setCard] = useState<tpCards[]>([]);
     const [erro, setErro] = useState("");
     const [carregando, setCarregando] = useState(true);
     const [consultaConcluida, setConsultaConcluida] = useState(false);
+    const navigate = useNavigate();
 
     const carregarCardsAsync = useCallback(async () => {
         try {
@@ -59,6 +62,22 @@ function Home() {
                 Cards.length === 0 && (
                     <p>Nenhum mangá encontrado na API.</p>
                 )}
+
+            
+
+                <div className="adicionar">
+                     {/* <button className="" onClick={() => {navigate("CadastrarManga"); }}>
+                       <img className="adicionar__img" src={adicionar} alt="adicionar manga" />
+                     </button> */}
+
+                     <button className="botao-com-div" onClick={() => {navigate("CadastrarManga"); }}>
+                        +
+
+                     </button>
+                    
+                  
+
+                </div>
         </div>
     );
 }
