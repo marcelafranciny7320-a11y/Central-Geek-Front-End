@@ -75,6 +75,10 @@ body {
     margin-right: 21px;
     margin-bottom: 21px;
     transition: background-color 0.2 ease ;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
 }
 
 .botao-com-div:hover{
