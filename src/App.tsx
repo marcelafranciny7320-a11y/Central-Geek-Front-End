@@ -12,16 +12,19 @@ import Manga from "./paginas/Manga";
 import Rodape from "./Componentes/Rodape.tsx";
 import { UsuarioLogadoProvider } from "./contexts/contextAuth.tsx";
 
+import { Perfil } from "./paginas/Perfil.tsx";
 function App() {
   return (
     <BrowserRouter>
       <UsuarioLogadoProvider>
+
 
         <Cabecalho />
 
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Cadastro" element={<Cadastro />} />
+          <Route path="/Perfil/editar" element={<Perfil />} />
           <Route path="/CadastrarManga" element={<CadastrarManga />} />
           <Route path="/Login" element={<Login />} />
           <Route path="*" element={<NotFound />} />
@@ -30,8 +33,9 @@ function App() {
           <Route path="/manga/:id" element={<Manga />} />
         </Routes>
 
+
         <Rodape />
-        
+
       </UsuarioLogadoProvider>
     </BrowserRouter>
   );
