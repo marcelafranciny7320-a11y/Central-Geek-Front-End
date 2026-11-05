@@ -10,25 +10,30 @@ import DetalheManga from "./paginas/DetalheManga";
 import Cabecalho from "./Componentes/Cabecalho";
 import Manga from "./paginas/Manga";
 import Rodape from "./Componentes/Rodape.tsx";
+import { UsuarioLogadoProvider } from "./contexts/contextAuth.tsx";
 
 function App() {
   return (
     <BrowserRouter>
-      <Cabecalho />
+      <UsuarioLogadoProvider>
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/Cadastro" element={<Cadastro />} />
-        <Route path="/CadastrarManga" element={<CadastrarManga />} />
-        <Route path="/Login" element={<Login />} />
-        <Route path="*" element={<NotFound />} />
-        <Route path="/detalhe-livro" element={<DetalheManga />} />
-        <Route path="/manga" element={<Manga />} />
-        <Route path="/manga/:id" element={<Manga />} />
-      </Routes>
+        <Cabecalho />
 
-      <Rodape />
-          </BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/Cadastro" element={<Cadastro />} />
+          <Route path="/CadastrarManga" element={<CadastrarManga />} />
+          <Route path="/Login" element={<Login />} />
+          <Route path="*" element={<NotFound />} />
+          <Route path="/detalhe-livro" element={<DetalheManga />} />
+          <Route path="/manga" element={<Manga />} />
+          <Route path="/manga/:id" element={<Manga />} />
+        </Routes>
+
+        <Rodape />
+        
+      </UsuarioLogadoProvider>
+    </BrowserRouter>
   );
 }
 

@@ -61,6 +61,10 @@ export interface UsuarioDTO {
     createdAt?: string;
 }
 
+export interface RespostaLogin {
+    usuario: UsuarioDTO;
+}
+
 export interface LoginDTO {
     email: string;
     passwordHash: string;
@@ -143,8 +147,9 @@ export function cadastrarUsuario(dados: UsuarioDTO) {
     return requisicaoAPI<unknown>("/usuarios", "POST", dados);
 }
 
-export function loginUsuario(dados: LoginDTO) {
-    return requisicaoAPI<unknown>("/usuarios/login", "POST", dados);
+export async function loginUsuario(dados: LoginDTO) {
+    const retorno = await requisicaoAPI<RespostaLogin>("/usuarios/login", "POST", dados);
+    return retorno.usuario
 }
 
 // NEGOCIAÇÕES

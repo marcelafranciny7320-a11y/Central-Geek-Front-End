@@ -1,14 +1,18 @@
-import { useState, type FormEvent } from "react";
+import { useContext, useState, type FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { loginUsuario } from "../api";
+import { loginUsuario, type UsuarioDTO } from "../api";
+import { UsuarioLogadoContext } from "../contexts/contextAuth";
 
 function Login() {
     const navegador = useNavigate();
 
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
+    const [usuario, setUsuario] = useState<UsuarioDTO | null>(null);
     const [mensagem, setMensagem] = useState("");
     const [carregando, setCarregando] = useState(false);
+    const context = useContext(UsuarioLogadoContext);
+    
 
     async function handleLogin(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
@@ -16,10 +20,15 @@ function Login() {
         setCarregando(true);
 
         try {
-            await loginUsuario({
+
+            const logado = await loginUsuario({
                 email: email,
-                passwordHash: senha,
+                passwordHash: senha
             });
+            setUsuario(logado);
+            console.log(logado);
+            context?.setUsuarioLogado(logado);
+            
 
             navegador("/");
         } catch (error) {
