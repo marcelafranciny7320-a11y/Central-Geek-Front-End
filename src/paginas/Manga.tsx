@@ -12,7 +12,6 @@ function Manga() {
     const [manga, setManga] = useState<tpCards | null>(null);
     const [carregando, setCarregando] = useState(true);
     const [erro, setErro] = useState("");
-    const [verMais, setVerMais] = useState(false);
 
     useEffect(() => {
         async function carregarManga() {
@@ -102,24 +101,6 @@ function Manga() {
                         Gênero: {manga.genre}
                     </p>
 
-                    <div className="manga-detalhes-lista">
-                        <p>
-                            <span>Volume:</span> {manga.volumeNumber}
-                        </p>
-
-                        <p>
-                            <span>Editora:</span> {manga.publisher}
-                        </p>
-
-                        <p>
-                            <span>ISBN:</span> {manga.isbn}
-                        </p>
-
-                        <p>
-                            <span>Condição:</span> {manga.condition}
-                        </p>
-                    </div>
-
                     <div className="manga-botoes">
                         <button
                             className="btn-comprar-manga"
@@ -158,38 +139,27 @@ function Manga() {
                             <span>Condição:</span> {manga.condition}
                         </p>
 
-                        {verMais && (
-                            <>
-                                <p>
-                                    <span>Gênero:</span> {manga.genre}
-                                </p>
+                        <p>
+                            <span>Gênero:</span> {manga.genre}
+                        </p>
 
-                                <p>
-                                    <span>Sinopse:</span>{" "}
-                                    {manga.synopsis || "Sem sinopse cadastrada."}
-                                </p>
+                        <p>
+                            <span>Sinopse:</span>{" "}
+                            {manga.synopsis || "Sem sinopse cadastrada."}
+                        </p>
 
-                                <p>
-                                    <span>Observações:</span>{" "}
-                                    {manga.notes || "Nenhuma observação cadastrada."}
-                                </p>
+                        <p>
+                            <span>Observações:</span>{" "}
+                            {manga.notes || "Nenhuma observação cadastrada."}
+                        </p>
 
-                                <p>
-                                    <span>Cadastrado em:</span>{" "}
-                                    {manga.createdAt
-                                        ? new Date(manga.createdAt).toLocaleDateString("pt-BR")
-                                        : "Não informado"}
-                                </p>
-                            </>
-                        )}
+                        <p>
+                            <span>Cadastrado em:</span>{" "}
+                            {manga.createdAt
+                                ? new Date(manga.createdAt).toLocaleDateString("pt-BR")
+                                : "Não informado"}
+                        </p>
                     </div>
-
-                    <button
-                        className="card-button"
-                        onClick={() => setVerMais(!verMais)}
-                    >
-                        {verMais ? "Ver menos" : "Ver mais detalhes"}
-                    </button>
                 </div>
             </div>
         </div>
