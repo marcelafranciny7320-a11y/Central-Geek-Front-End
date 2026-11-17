@@ -34,6 +34,8 @@ type ContextType = {
     setCity: (city: string) => void;
     state: string;
     setState: (state: string) => void;
+    whatsapp: string;
+    setWhatsapp: (whatsapp: string) => void;
     setUsuarioLogado: (usuario: UsuarioDTO) => void;
 }
 
@@ -49,6 +51,7 @@ export const UsuarioLogadoProvider = ({ children }: { children: ReactNode }) => 
     const [avatarUrl, setAvatarUrl] = useState("");
     const [city, setCity] = useState("");
     const [state, setState] = useState("");
+    const [whatsapp, setWhatsapp] = useState("");
 
     const setUsuarioLogado = (usuario: UsuarioDTO) => {
         console.log(usuario);
@@ -61,10 +64,11 @@ export const UsuarioLogadoProvider = ({ children }: { children: ReactNode }) => 
         setAvatarUrl(usuario.avatarUrl ?? "");
         setCity(usuario.city ?? "");
         setState(usuario.state ?? "");
+        setWhatsapp(usuario.whatsapp ?? "");
     };
 
     return(
-        <UsuarioLogadoContext.Provider value={{ id, setId, email, setEmail, username, setUsername, role, setRole, displayName, setDisplayName, bio, setBio, avatarUrl, setAvatarUrl, city, setCity, state, setState, setUsuarioLogado }}>
+        <UsuarioLogadoContext.Provider value={{ id, setId, email, setEmail, username, setUsername, role, setRole, displayName, setDisplayName, bio, setBio, avatarUrl, setAvatarUrl, city, setCity, state, setState, whatsapp, setWhatsapp, setUsuarioLogado }}>
             {children}
         </UsuarioLogadoContext.Provider>
     )

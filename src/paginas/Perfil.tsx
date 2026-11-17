@@ -27,8 +27,7 @@ interface UserProfile {
       avatarUrl: login?.avatarUrl || 'https://github.com/identicons/user.png',
       city: login?.city || 'São Paulo',
       state: login?.state || 'Sp',
-      // TODO: Adicionar o campo de WhatsApp no contexto e no estado do perfil
-      whatsapp: login?.whatsapp || '(11)99999-9999',
+      whatsapp: login?.whatsapp || '(11) 99999-9999',
     });
 
     const [mensagemSucesso, setMensagemSucesso] = useState(false);

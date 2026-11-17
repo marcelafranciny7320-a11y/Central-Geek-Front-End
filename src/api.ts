@@ -58,6 +58,7 @@ export interface UsuarioDTO {
     avatarUrl?: string;
     city?: string;
     state?: string;
+    whatsapp: string;
     createdAt?: string;
 }
 
