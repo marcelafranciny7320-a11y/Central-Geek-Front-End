@@ -6,7 +6,7 @@ function DetalheManga() {
 
     return (
 
-        <div>
+        <div className="pagina-detalhe">
            
          <button className="btn-voltar" onClick={() => {navigate("/"); }}>Voltar</button>
 

@@ -537,6 +537,8 @@ input::placeholder {
   }
 }
 
+
+
 .detalheManga-superior {
   height: 400px;
   width: 80%;
@@ -692,7 +694,7 @@ input::placeholder {
 .pagina-manga {
   min-height: 100vh;
   padding: 25px 5%;
-  background-color: #d9dce6;
+  background-color: #0f172a;
   color: #ffffff;
   box-sizing: border-box;
 }
