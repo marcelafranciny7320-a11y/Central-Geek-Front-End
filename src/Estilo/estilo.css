@@ -28,11 +28,25 @@ body {
   justify-content: center;
 }
 
-.imgusuario {
-  width: 40px;
-  height: 40px;
+.img__usuario{
+  width: 60px;
+  height: 60px;
   margin-left: 20px;
   flex: 1;
+  border-radius: 50%;
+}
+
+.icone__usuario {
+  width: 60px;
+  height: 60px;
+  margin-left: 20px;
+  flex: 1;
+}
+
+.carrinho {
+  width: 60px;
+  height: 60px;
+  margin-left: 20px;
 }
 
 .localizacao {
@@ -74,7 +88,11 @@ body {
     cursor: pointer;
     margin-right: 21px;
     margin-bottom: 21px;
-    transition: background-color 0.2 ease ;
+    transition: background-color 0.2 ease;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
 }
 
 .botao-com-div:hover{
@@ -95,11 +113,6 @@ body {
 
 }
 
-.carrinho {
-  width: 40px;
-  height: 40px;
-  margin-left: 20px;
-}
 
 
 .Menu1 {
@@ -880,7 +893,7 @@ input::placeholder {
   max-width: 600px;
   margin: 2rem auto;
   padding: 2rem;
-  background-color: #ffffff;
+  background-color: var(--bg-card);
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
@@ -923,10 +936,6 @@ input::placeholder {
 .form-row {
   display: flex;
   gap: 1rem;
-}
-
-.form-group-short {
-  max-width: 80px;
 }
 
 .form-group label {

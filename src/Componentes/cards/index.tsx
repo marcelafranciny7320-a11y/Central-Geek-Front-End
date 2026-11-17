@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import type { tpCards } from "../../types/cards";
+import { UsuarioLogadoContext } from "../../contexts/contextAuth";
+import { useContext } from "react";
 
 type Props = {
     manga: tpCards;
@@ -7,6 +9,7 @@ type Props = {
 
 function Card({ manga }: Props) {
     const navegador = useNavigate();
+    const login = useContext(UsuarioLogadoContext);
 
     return (
         <div className="card">
@@ -40,12 +43,14 @@ function Card({ manga }: Props) {
 
                 <br />
 
-                <button
-                    className="card-button"
-                    onClick={() => navegador(`/manga/${manga.id}`)}
-                >
-                    Ver mais
-                </button>
+                {login?.id ? (
+                    <button
+                        className="card-button"
+                        onClick={() => navegador(`/manga/${manga.id}`)}
+                    >
+                        Ver mais
+                    </button>
+                ) : null}
             </div>
 
         </div>

@@ -5,18 +5,21 @@ import { Link } from 'react-router-dom'
 import logo from "../../assets/logo.png"
 
 import carrinho from "../../assets/carrinho.png"
-import { useState } from "react";
+import { useContext } from "react";
+import { UsuarioLogadoContext } from "../../contexts/contextAuth";
 
 
 
 function Cabecalho() {
- 
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const toggleMenu = () => setIsMenuOpen((isOpen) => !isOpen);
+
+    // const [isMenuOpen, setIsMenuOpen] = useState(false);
+    // const toggleMenu = () => setIsMenuOpen((isOpen) => !isOpen);
+    const login = useContext(UsuarioLogadoContext);
+    
 
     return (
         <div className="Cab-principal">
-            
+
             <header>
 
                 <div className="home-pesquisa">
@@ -30,64 +33,70 @@ function Cabecalho() {
                         <button className="home-pesquisa-input-botao">Pesquisar</button>
                     </div>
 
-                    <div className= "home-botoes">
+                    <div className="home-botoes">
 
-                        <Link to="/Login">
-                            <img className="imgusuario" src={usuario} alt="página do usuario" />
-                        </Link>
+                        {login?.id ? (
+                            <Link to="/Perfil/editar">
+                                <img className="img__usuario" src={login.avatarUrl} alt="página do usuario" />
+                            </Link>
+                        ) : (
+                            <Link to="/Login">
+                                <img className="icone__usuario" src={usuario} alt="página do usuario" />
+                            </Link>
+                        )}
 
                         <div>
                             <img className="carrinho" src={carrinho} />
                         </div>
-   
-                       
+
+
                     </div>
 
-                 </div>
+                </div>
 
-                        
-                     <div className="user-area">
-                           <Link to="/perfil" className="profile-link">
-                             <img 
-                              src="https://github.com/identicons/user.png" 
-                              alt="Foto do Perfil" 
-                              className="avatar-img"
-                             />
-                             <span>Meu Perfil</span>
-                           </Link>
-                           
-                         </div>
 
-                         <div className="user-menu-container">
-                           <button onClick={toggleMenu} className="avatar-button">
-                            <img src="https://github.com/identicons/user.png" alt="Avatar" />
-                            <span>Usuario</span>
-                           </button>
+                {/* <div className="user-area">
+                    <Link to="/perfil" className="profile-link">
+                        <img
+                            src="https://github.com/identicons/user.png"
+                            alt="Foto do Perfil"
+                            className="avatar-img"
+                        />
+                        <span>Meu Perfil</span>
+                    </Link>
 
-                                               
-                             <button onClick={toggleMenu} className="avatar-button"></button>
-                             {isMenuOpen && (
-                             <nav className="dropdown-menu">
-                                 <ul>
-                                    <li>
-                                        <Link to="perfil" onClick={() => setIsMenuOpen (false)}>
-                                          Ver/Editar Perfil
-                                         </Link> 
-                                    </li>
-                                    <li>
-                                        <Link to="meus-anuncios" onClick={() => setIsMenuOpen (false)}>
-                                          Meus Mangás
-                                        </Link>  
-                                    </li>
-                                    <li className="divider"></li>
-                                    <li>
-                                        <button onClick={() => alert('Sair da conta')}>Sair</button>
-                                    </li>
-                                </ul>
-                             </nav>
-                              )}
+                </div>
 
-                        </div>
+                <div className="user-menu-container">
+                    <button onClick={toggleMenu} className="avatar-button">
+                        <img src="https://github.com/identicons/user.png" alt="Avatar" />
+                        <span>Usuario</span>
+                    </button>
+
+
+                    <button onClick={toggleMenu} className="avatar-button"></button>
+                    {isMenuOpen && (
+                        <nav className="dropdown-menu">
+                            <ul>
+                                <li>
+                                    <Link to="perfil" onClick={() => setIsMenuOpen(false)}>
+                                        Ver/Editar Perfil
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to="meus-anuncios" onClick={() => setIsMenuOpen(false)}>
+                                        Meus Mangás
+                                    </Link>
+                                </li>
+                                <li className="divider"></li>
+                                <li>
+                                    <button onClick={() => alert('Sair da conta')}>Sair</button>
+                                </li>
+                            </ul>
+                        </nav>
+                    )}
+
+                </div> */}
 
             </header>
         </div>

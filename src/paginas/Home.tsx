@@ -1,9 +1,10 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import Card from "../Componentes/cards";
 import "../Estilo/estilo.css";
 import type { tpCards } from "../types/cards";
 import { listarMangas } from "../api";
 import { useNavigate } from "react-router-dom";
+import { UsuarioLogadoContext } from "../contexts/contextAuth";
 
 
 function Home() {
@@ -12,6 +13,7 @@ function Home() {
     const [carregando, setCarregando] = useState(true);
     const [consultaConcluida, setConsultaConcluida] = useState(false);
     const navigate = useNavigate();
+    const login = useContext(UsuarioLogadoContext);
 
     const carregarCardsAsync = useCallback(async () => {
         try {
@@ -38,12 +40,12 @@ function Home() {
 
     return (
         <div className="menu1">
-            <button
+            {/* <button
                 onClick={() => void carregarCardsAsync()}
                 disabled={carregando}
             >
                 {carregando ? "Carregando..." : "Atualizar mangás"}
-            </button>
+            </button> */}
 
             {erro && <p role="alert">{erro}</p>}
 
@@ -64,20 +66,16 @@ function Home() {
                 )}
 
             
-
+            {login?.id ? (
                 <div className="adicionar">
-                     {/* <button className="" onClick={() => {navigate("CadastrarManga"); }}>
+                    {/* <button className="" onClick={() => {navigate("CadastrarManga"); }}>
                        <img className="adicionar__img" src={adicionar} alt="adicionar manga" />
                      </button> */}
-
-                     <button className="botao-com-div" onClick={() => {navigate("CadastrarManga"); }}>
+                    <button className="botao-com-div" onClick={() => { navigate("CadastrarManga"); }}>
                         +
-
-                     </button>
-                    
-                  
-
+                    </button>
                 </div>
+            ) : null}
         </div>
     );
 }

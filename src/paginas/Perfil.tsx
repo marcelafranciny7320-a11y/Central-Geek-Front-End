@@ -1,24 +1,34 @@
-import { useState, type ChangeEvent, type FormEvent } from 'react'
+import { useContext, useState, type ChangeEvent, type FormEvent } from 'react'
+import { UsuarioLogadoContext } from '../contexts/contextAuth';
 
 interface UserProfile {
-    nome: string;
+    displayName: string;
     email: string;
-    avatarUrl: string;
+    username: string;
+    password: string;
     bio: string;
-    cidade: string;
-    estado: string,
+    avatarUrl: string;
+    city: string;
+    state: string;
     whatsapp: string;
 }
 
+
     export function Perfil () {
+
+      const login = useContext(UsuarioLogadoContext);
+
     const [profile, setProfile]= useState<UserProfile>({
-      nome: 'User',
-      email: 'user123@exemplo.com',
-      avatarUrl: 'https://github.com/identicons/user.png',
-      bio: 'Colecionador de Shonen e leitor assíduo. Em busca de trocas de mangás clássicos!',
-      cidade: 'São Paulo',
-      estado: 'Sp',
-      whatsapp: '(11)99999-9999',
+      displayName: login?.displayName || 'User',
+      email: login?.email || 'user123@exemplo.com',
+      username: login?.username || 'user123',
+      password: '',
+      bio: login?.bio || 'Colecionador de Shonen e leitor assíduo. Em busca de trocas de mangás clássicos!',
+      avatarUrl: login?.avatarUrl || 'https://github.com/identicons/user.png',
+      city: login?.city || 'São Paulo',
+      state: login?.state || 'Sp',
+      // TODO: Adicionar o campo de WhatsApp no contexto e no estado do perfil
+      whatsapp: login?.whatsapp || '(11)99999-9999',
     });
 
     const [mensagemSucesso, setMensagemSucesso] = useState(false);
@@ -52,7 +62,7 @@ interface UserProfile {
             <div className='avatar-section'>
               <img
               src={profile.avatarUrl || 'https://via.placeholder.com/120'}
-              alt={`Foto de ${profile.nome}`}
+              alt={`Foto de ${profile.displayName}`}
               className="perfil-avatar-preview"
               />
 
@@ -71,12 +81,12 @@ interface UserProfile {
             </div>
           
             <div className='form-group'>
-              <label htmlFor='nome'>Nome Completo/ Usuário </label>
+              <label htmlFor='displayName'>Nome Completo/ Usuário </label>
               <input
                  type='text'
-                 id='nome'
-                 name='nome'
-                 value={profile.nome}
+                 id='displayName'
+                 name='displayName'
+                 value={profile.displayName}
                  onChange={handleChange}
                  required
               />
@@ -90,42 +100,18 @@ interface UserProfile {
                  name='email'
                  value={profile.email}
                  onChange={handleChange}
-                 disabled
               />
             </div>
-            <div className="form-row"></div>
             <div className='form-group'>
-              <label htmlFor='cidade'>Cidade </label>
+              <label htmlFor='email'>Senha</label>
               <input
-                 type='text'
-                 id='cidade'
-                 name='cidade'
-                 value={profile.cidade}
+                 type='password'
+                 id='password'
+                 name='password'
+                 value={profile.password}
                  onChange={handleChange}
-                 />
+              />
             </div>
-            <div className='form-group form-group-short'>
-              <label htmlFor='estado'>Estado</label>
-              <input
-                 type='text'
-                 id='estado'
-                 name='estado'
-                 value={profile.estado}
-                 onChange={handleChange}
-                 maxLength={2}
-                />
-          </div>
-          <div className='form-group'>
-              <label htmlFor='whatsapp'>whatsapp</label>
-              <input
-                 type='text'
-                 id='whatsapp'
-                 name='whatsapp'
-                 value={profile.whatsapp}
-                 onChange={handleChange}
-                 placeholder="(00) 00000-0000"
-               />
-          </div>
            <div className='form-group'>
               <label htmlFor='bio'>biografia/ Sobre você</label>
               <textarea
@@ -134,6 +120,39 @@ interface UserProfile {
                  value={profile.bio}
                  onChange={handleChange}
                  placeholder="Conte um pouco sobre suas coleções e mangás favoritos..."
+               />
+          </div>
+            {/* <div className="form-row"></div> */}
+            <div className='form-group'>
+              <label htmlFor='city'>Cidade </label>
+              <input
+                 type='text'
+                 id='city'
+                 name='city'
+                 value={profile.city}
+                 onChange={handleChange}
+                 />
+            </div>
+            <div className='form-group form-group'>
+              <label htmlFor='state'>Estado</label>
+              <input
+                 type='text'
+                 id='state'
+                 name='state'
+                 value={profile.state}
+                 onChange={handleChange}
+                 maxLength={2}
+                />
+          </div>
+          <div className='form-group'>
+              <label htmlFor='whatsapp'>WhatsApp</label>
+              <input
+                 type='text'
+                 id='whatsapp'
+                 name='whatsapp'
+                 value={profile.whatsapp}
+                 onChange={handleChange}
+                 placeholder="(00) 00000-0000"
                />
           </div>
           <button type='submit' className='btn-salvar'>
