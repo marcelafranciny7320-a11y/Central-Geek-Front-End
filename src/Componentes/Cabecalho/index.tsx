@@ -1,21 +1,32 @@
-import usuario from "../../assets/usuario.png"
-
-import { Link } from 'react-router-dom'
-
-import logo from "../../assets/logo.png"
-
-import carrinho from "../../assets/carrinho.png"
 import { useContext } from "react";
 import { UsuarioLogadoContext } from "../../contexts/contextAuth";
-
-
+import usuario from "../../assets/usuario.png";
+import { Link, useSearchParams } from "react-router-dom";
+import logo from "../../assets/logo.png";
+import carrinho from "../../assets/carrinho.png";
 
 function Cabecalho() {
 
     // const [isMenuOpen, setIsMenuOpen] = useState(false);
     // const toggleMenu = () => setIsMenuOpen((isOpen) => !isOpen);
     const login = useContext(UsuarioLogadoContext);
-    
+
+
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    const pesquisa = searchParams.get("busca") || "";
+
+    const atualizarPesquisa = (valor: string) => {
+        const novosParametros = new URLSearchParams(searchParams);
+
+        if (valor) {
+            novosParametros.set("busca", valor);
+        } else {
+            novosParametros.delete("busca");
+        }
+
+        setSearchParams(novosParametros, { replace: true });
+    };
 
     return (
         <div className="Cab-principal">
@@ -25,12 +36,19 @@ function Cabecalho() {
                 <div className="home-pesquisa">
 
                     <Link to="/" className="home-logo">
-                        <img className="logo" src={logo} alt="página de localizacao" />
+                        <img className="logo" src={logo} alt="Página inicial" />
                     </Link>
 
                     <div className="home-pesquisa-input">
-                        <input className="home-pesquisa-input-campo" type="text" placeholder="Pesquisar..." />
-                        <button className="home-pesquisa-input-botao">Pesquisar</button>
+
+                        <input
+                            className="home-pesquisa-input-campo"
+                            type="text"
+                            placeholder="Pesquisar..."
+                            value={pesquisa}
+                            onChange={(e) => atualizarPesquisa(e.target.value)}
+                        />
+
                     </div>
 
                     <div className="home-botoes">
@@ -46,7 +64,7 @@ function Cabecalho() {
                         )}
 
                         <div>
-                            <img className="carrinho" src={carrinho} />
+                            <img className="carrinho" src={carrinho} alt="Carrinho" />
                         </div>
 
 
@@ -99,6 +117,7 @@ function Cabecalho() {
                 </div> */}
 
             </header>
+
         </div>
     );
 }

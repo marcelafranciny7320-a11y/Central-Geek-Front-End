@@ -3,35 +3,51 @@ import Card from "../Componentes/cards";
 import "../Estilo/estilo.css";
 import type { tpCards } from "../types/cards";
 import { listarMangas } from "../api";
-import { useNavigate } from "react-router-dom";
 import { UsuarioLogadoContext } from "../contexts/contextAuth";
-
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 function Home() {
+
     const [Cards, setCard] = useState<tpCards[]>([]);
     const [erro, setErro] = useState("");
     const [carregando, setCarregando] = useState(true);
     const [consultaConcluida, setConsultaConcluida] = useState(false);
+
     const navigate = useNavigate();
     const login = useContext(UsuarioLogadoContext);
 
+    const [searchParams] = useSearchParams();
+
+    const pesquisa = searchParams.get("busca") || "";
+
+    const FiltraManga = Cards.filter((item) =>
+        item.title.toLowerCase().includes(pesquisa.toLowerCase())
+    );
+
     const carregarCardsAsync = useCallback(async () => {
+
         try {
             setCarregando(true);
             setErro("");
 
             const dados = await listarMangas();
             setCard(dados);
+
         } catch (error) {
+
             setErro(
                 error instanceof Error
                     ? error.message
                     : "Erro ao carregar os mangás."
             );
+
         } finally {
+
             setCarregando(false);
             setConsultaConcluida(true);
+
         }
+
     }, []);
 
     useEffect(() => {
@@ -39,8 +55,12 @@ function Home() {
     }, [carregarCardsAsync]);
 
     return (
+
         <div className="menu1">
             {/* <button
+
+
+            <button
                 onClick={() => void carregarCardsAsync()}
                 disabled={carregando}
             >
@@ -50,9 +70,11 @@ function Home() {
             {erro && <p role="alert">{erro}</p>}
 
             <div className="home-cards">
-                {Cards.map((item) => (
+
+                {FiltraManga.map((item) => (
                     <Card key={item.id} manga={item} />
                 ))}
+
             </div>
 
             {carregando && Cards.length === 0 && (
@@ -76,6 +98,12 @@ function Home() {
                     </button>
                 </div>
             ) : null}
+            {pesquisa !== "" &&
+                FiltraManga.length === 0 &&
+                Cards.length > 0 && (
+                    <p>Nenhum mangá corresponde à pesquisa.</p>
+                )}
+
         </div>
     );
 }
